@@ -1,0 +1,15 @@
+data/raw/*.txt
+data/raw/*.csv
+
+results/*.joblib
+
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+engine-rs/target/
+engine-rs/artifacts/
+
+engine-native/target/
+engine-native/src/forest_generated.rs
