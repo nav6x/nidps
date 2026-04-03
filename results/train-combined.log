@@ -1,0 +1,48 @@
+
+=== NSL-KDD ===
+train (125973, 41)  test (22544, 41)
+attack rate  train 0.465  test 0.569
+attack families in test but not in train: 17
+  apache2, httptunnel, mailbomb, mscan, named, processtable, ps, saint, sendmail, snmpgetattack, snmpguess, sqlattack, udpstorm, worm, xlock, xsnoop, xterm
+  [random ] logistic-regression    acc=0.9505 f1=0.9479 fpr=0.0368
+  [random ] decision-tree          acc=0.9933 f1=0.9931 fpr=0.0043
+  [random ] random-forest          acc=0.9953 f1=0.9951 fpr=0.0029
+  [official] logistic-regression    acc=0.7546 f1=0.7446 fpr=0.0788 novel_recall=0.4171 known_recall=0.7158
+  [official] decision-tree          acc=0.7853 f1=0.7835 fpr=0.0790 novel_recall=0.4440 known_recall=0.7811
+  [official] random-forest          acc=0.7745 f1=0.7592 fpr=0.0273 novel_recall=0.2765 known_recall=0.7681
+      fpr<=0.001  thr=0.994 recall=0.3912 actual_fpr=0.0011 false_alerts/10k=4.9
+      fpr<=0.005  thr=0.989 recall=0.4294 actual_fpr=0.0051 false_alerts/10k=22.2
+      fpr<=0.01   thr=0.981 recall=0.4460 actual_fpr=0.0101 false_alerts/10k=43.5
+      fpr<=0.05   thr=0.208 recall=0.7757 actual_fpr=0.0513 false_alerts/10k=220.9
+
+=== UNSW-NB15 ===
+train (175341, 42)  test (82332, 42)
+attack rate  train 0.681  test 0.551
+attack families in test but not in train: 0
+  [random ] logistic-regression    acc=0.9094 f1=0.9314 fpr=0.1848
+  [random ] decision-tree          acc=0.9374 f1=0.9504 fpr=0.0640
+  [random ] random-forest          acc=0.9504 f1=0.9613 fpr=0.0705
+  [official] logistic-regression    acc=0.8139 f1=0.8517 fpr=0.3782
+  [official] decision-tree          acc=0.8554 f1=0.8800 fpr=0.2762
+  [official] random-forest          acc=0.8672 f1=0.8913 fpr=0.2818
+      fpr<=0.001  thr=0.978 recall=0.6962 actual_fpr=0.0010 false_alerts/10k=4.5
+      fpr<=0.005  thr=0.943 recall=0.8132 actual_fpr=0.0050 false_alerts/10k=22.5
+      fpr<=0.01   thr=0.919 recall=0.8504 actual_fpr=0.0100 false_alerts/10k=44.9
+      fpr<=0.05   thr=0.835 recall=0.9014 actual_fpr=0.0500 false_alerts/10k=224.8
+
+================ SUMMARY ================
+  dataset       protocol               model  accuracy  precision  recall     f1  roc_auc    fpr  novel_recall  known_recall  false_alerts_per_10k
+  NSL-KDD   random-split logistic-regression    0.9505     0.9594  0.9368 0.9479   0.9915 0.0368           NaN           NaN              190.9507
+  NSL-KDD   random-split       decision-tree    0.9933     0.9954  0.9908 0.9931   0.9978 0.0043           NaN           NaN               22.0846
+  NSL-KDD   random-split       random-forest    0.9953     0.9969  0.9932 0.9951   0.9999 0.0029           NaN           NaN               14.8128
+  NSL-KDD official-split logistic-regression    0.7546     0.9134  0.6285 0.7446   0.7709 0.0788        0.4171        0.7158              339.3364
+  NSL-KDD official-split       decision-tree    0.7853     0.9195  0.6826 0.7835   0.7709 0.0790        0.4440        0.7811              340.2236
+  NSL-KDD official-split       random-forest    0.7745     0.9680  0.6245 0.7592   0.9667 0.0273        0.2765        0.7681              117.5479
+UNSW-NB15   random-split logistic-regression    0.9094     0.9022  0.9626 0.9314   0.9770 0.1848           NaN           NaN              666.8840
+UNSW-NB15   random-split       decision-tree    0.9374     0.9629  0.9382 0.9504   0.9868 0.0640           NaN           NaN              231.1430
+UNSW-NB15   random-split       random-forest    0.9504     0.9603  0.9623 0.9613   0.9922 0.0705           NaN           NaN              254.2728
+UNSW-NB15 official-split logistic-regression    0.8139     0.7587  0.9706 0.8517   0.9557 0.3782           NaN           NaN             1699.5822
+UNSW-NB15 official-split       decision-tree    0.8554     0.8103  0.9628 0.8800   0.9642 0.2762           NaN           NaN             1241.3156
+UNSW-NB15 official-split       random-forest    0.8672     0.8113  0.9888 0.8913   0.9824 0.2818           NaN           NaN             1266.3363
+
+wrote results/summary.csv
