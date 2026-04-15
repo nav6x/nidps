@@ -1,0 +1,68 @@
+[
+  {
+    "dataset": "NSL-KDD",
+    "sid": 1000,
+    "name": "SYN flood \u2014 half-open connections to one host",
+    "enabled": true,
+    "hits": 1335,
+    "precision": 1.0,
+    "attack_coverage": 0.1040286760695083,
+    "base_rate": 0.5692423704755145,
+    "verdict": "KEEP"
+  },
+  {
+    "dataset": "NSL-KDD",
+    "sid": 1001,
+    "name": "Horizontal port sweep",
+    "enabled": true,
+    "hits": 878,
+    "precision": 0.9806378132118451,
+    "attack_coverage": 0.0670926517571885,
+    "base_rate": 0.5692423704755145,
+    "verdict": "KEEP"
+  },
+  {
+    "dataset": "NSL-KDD",
+    "sid": 1002,
+    "name": "Root shell obtained on a non-login session",
+    "enabled": true,
+    "hits": 0,
+    "precision": null,
+    "attack_coverage": 0.0,
+    "base_rate": 0.5692423704755145,
+    "verdict": "no hits \u2014 untested here"
+  },
+  {
+    "dataset": "NSL-KDD",
+    "sid": 1003,
+    "name": "Repeated authentication failure",
+    "enabled": false,
+    "hits": 4,
+    "precision": 0.25,
+    "attack_coverage": 7.792410192472531e-05,
+    "base_rate": 0.5692423704755145,
+    "verdict": "DROP \u2014 below base rate"
+  },
+  {
+    "dataset": "UNSW-NB15",
+    "sid": 2000,
+    "name": "Connection refused / no reply at volume",
+    "enabled": false,
+    "hits": 1804,
+    "precision": 0.07483370288248337,
+    "attack_coverage": 0.002978028765551928,
+    "base_rate": 0.5506000097167566,
+    "verdict": "DROP \u2014 below base rate"
+  },
+  {
+    "dataset": "UNSW-NB15",
+    "sid": 2001,
+    "name": "Suspicious FTP session with commands",
+    "enabled": true,
+    "hits": 0,
+    "precision": null,
+    "attack_coverage": 0.0,
+    "base_rate": 0.5506000097167566,
+    "verdict": "no hits \u2014 untested here"
+  }
+]
