@@ -1,0 +1,18 @@
+{
+  "dataset": "UNSW-NB15",
+  "flows": 82332,
+  "alert_threshold": 0.9187866112211375,
+  "block_threshold": 0.98,
+  "throughput_flows_per_s": 10191.03751649249,
+  "actions": {
+    "ALLOW": 43413,
+    "ALERT": 38605,
+    "BLOCK": 314
+  },
+  "tp": 38549,
+  "fp": 370,
+  "fn": 6783,
+  "tn": 36630,
+  "blocked_benign": 23,
+  "signature_hits": {}
+}

@@ -1,0 +1,21 @@
+{
+  "dataset": "NSL-KDD",
+  "flows": 22544,
+  "alert_threshold": 0.9814182989651716,
+  "block_threshold": 0.98,
+  "throughput_flows_per_s": 13049.32981237629,
+  "actions": {
+    "BLOCK": 150,
+    "ALLOW": 16388,
+    "ALERT": 6006
+  },
+  "tp": 6044,
+  "fp": 112,
+  "fn": 6789,
+  "tn": 9599,
+  "blocked_benign": 2,
+  "signature_hits": {
+    "SYN flood \u2014 half-open connections to one host": 1335,
+    "Horizontal port sweep": 878
+  }
+}
