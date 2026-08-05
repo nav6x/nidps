@@ -1,0 +1,19 @@
+[package]
+name = "nidps-engine-native"
+version = "0.1.0"
+edition = "2021"
+description = "Forest compiled to native branch code (treelite-style speed experiment)"
+license = "MIT"
+
+[[bin]]
+name = "nidps-engine-native"
+path = "src/main.rs"
+
+[dependencies]
+nidps-engine = { path = "../engine-rs" }
+rayon = "1"
+
+[profile.release]
+opt-level = 2
+codegen-units = 256
+lto = false
