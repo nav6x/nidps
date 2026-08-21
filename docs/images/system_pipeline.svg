@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 24px; font-weight: 800; fill: #FFFFFF; letter-spacing: 0.5px; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; fill: #8B949E; }
+      .stage-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: 800; letter-spacing: 0.5px; }
+      .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 15.5px; font-weight: 700; fill: #FFFFFF; }
+      .card-tag { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
+      .card-bullet { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; fill: #E6EDF3; font-weight: 450; }
+      .contract { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 11px; font-weight: 600; }
+      .panel { fill: #21262D; stroke: #30363D; stroke-width: 1px; rx: 8px; }
+      .card { fill: #161B22; stroke: #384252; stroke-width: 1px; rx: 6px; }
+      .arrow { stroke: #58A6FF; stroke-width: 2.5px; fill: none; }
+      .arrowhead { fill: #58A6FF; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" class="arrowhead" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#181A1F" />
+
+  <!-- Title and Subtitle -->
+  <text x="35" y="38" class="title">System Pipeline &amp; In-Line Decision Architecture</text>
+  <text x="35" y="62" class="subtitle">End-to-end data processing path: from raw packet capture to calibrated dual-engine IPS mitigation decisions</text>
+
+  <!-- STAGE 1: TELEMETRY INGESTION -->
+  <g transform="translate(35, 84)">
+    <rect width="266" height="524" class="panel" stroke="#58A6FF" />
+    <text x="16" y="28" class="stage-title" fill="#58A6FF">STAGE 1: TELEMETRY INGESTION</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(14, 44)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#58A6FF">WIRESHARK / PCAP</text>
+      <text x="14" y="47" class="card-title">Raw Network Traffic</text>
+      <text x="14" y="73" class="card-bullet">• Bidirectional flow reassembly</text>
+      <text x="14" y="97" class="card-bullet">• 5-tuple connection state</text>
+      <text x="14" y="121" class="card-bullet">• Real-time packet telemetry</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(14, 188)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#3FB950">OFFICIAL SPLIT</text>
+      <text x="14" y="47" class="card-title">Benchmark Partitions</text>
+      <text x="14" y="73" class="card-bullet">• NSL-KDD (125k / 22k test)</text>
+      <text x="14" y="97" class="card-bullet">• UNSW-NB15 (175k / 82k test)</text>
+      <text x="14" y="121" class="card-bullet">• 17 novel families preserved</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(14, 332)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#39C5BB">41-42 FEATURES</text>
+      <text x="14" y="47" class="card-title">Statistical Extraction</text>
+      <text x="14" y="73" class="card-bullet">• Connection duration &amp; bytes</text>
+      <text x="14" y="97" class="card-bullet">• Packet rates and load</text>
+      <text x="14" y="121" class="card-bullet">• TCP handshake error flags</text>
+    </g>
+
+    <text x="16" y="496" class="contract" fill="#58A6FF">Input: Raw pcap / flow tuple</text>
+  </g>
+
+  <!-- Connect Stage 1 to 2 -->
+  <path d="M 301 346 L 323 346" class="arrow" marker-end="url(#arrow)" />
+
+  <!-- STAGE 2: LEAK-FREE TRANSFORM -->
+  <g transform="translate(323, 84)">
+    <rect width="266" height="524" class="panel" stroke="#39C5BB" />
+    <text x="16" y="28" class="stage-title" fill="#39C5BB">STAGE 2: LEAK-FREE TRANSFORM</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(14, 44)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#D29922">HEAVY-TAILED</text>
+      <text x="14" y="47" class="card-title">Logarithmic Scaling</text>
+      <text x="14" y="73" class="card-bullet">• src_bytes, dst_bytes, dur</text>
+      <text x="14" y="97" class="card-bullet">• log(1 + x) zero skewness</text>
+      <text x="14" y="121" class="card-bullet">• Preserves raw units for rules</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(14, 188)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#3FB950">CI ENFORCED</text>
+      <text x="14" y="47" class="card-title">Leak-Free Isolation</text>
+      <text x="14" y="73" class="card-bullet">• Fitted on TRAIN split only</text>
+      <text x="14" y="97" class="card-bullet">• Median numerical imputer</text>
+      <text x="14" y="121" class="card-bullet">• StandardScaler (u=0, s=1)</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(14, 332)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#58A6FF">ONE-HOT ENCODING</text>
+      <text x="14" y="47" class="card-title">Categorical Handling</text>
+      <text x="14" y="73" class="card-bullet">• Protocol, service, flag enc</text>
+      <text x="14" y="97" class="card-bullet">• handle_unknown='ignore'</text>
+      <text x="14" y="121" class="card-bullet">• 115 total encoded dimensions</text>
+    </g>
+
+    <text x="16" y="496" class="contract" fill="#39C5BB">Invariant: Fit(X_tr) -&gt; Trans(X_te)</text>
+  </g>
+
+  <!-- Connect Stage 2 to 3 -->
+  <path d="M 589 346 L 611 346" class="arrow" marker-end="url(#arrow)" />
+
+  <!-- STAGE 3: DUAL-ENGINE INFERENCE -->
+  <g transform="translate(611, 84)">
+    <rect width="266" height="524" class="panel" stroke="#BC8CFF" />
+    <text x="16" y="28" class="stage-title" fill="#BC8CFF">STAGE 3: DUAL-ENGINE INFERENCE</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(14, 44)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#D29922">EXACT MATCH</text>
+      <text x="14" y="47" class="card-title">Deterministic Rules</text>
+      <text x="14" y="73" class="card-bullet">• SYN flood: sid 1000 (100% prec)</text>
+      <text x="14" y="97" class="card-bullet">• Port sweep: sid 1001 (98% prec)</text>
+      <text x="14" y="121" class="card-bullet">• Evaluated on RAW wire metrics</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(14, 188)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#58A6FF">SUPERVISED</text>
+      <text x="14" y="47" class="card-title">Random Forest (200 Trees)</text>
+      <text x="14" y="73" class="card-bullet">• 99.5% recall on seen families</text>
+      <text x="14" y="97" class="card-bullet">• 5.1% recall on novel families</text>
+      <text x="14" y="121" class="card-bullet">• Depth-blocked f32 traversal</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(14, 332)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#39C5BB">UNSUPERVISED</text>
+      <text x="14" y="47" class="card-title">Isolation Forest (300 Trees)</text>
+      <text x="14" y="73" class="card-bullet">• Trained on BENIGN traffic only</text>
+      <text x="14" y="97" class="card-bullet">• 46.9% recall on novel families</text>
+      <text x="14" y="121" class="card-bullet">• Catches zero-days 9x better</text>
+    </g>
+
+    <text x="16" y="496" class="contract" fill="#BC8CFF">Output: Score Vector s in [0, 1]</text>
+  </g>
+
+  <!-- Connect Stage 3 to 4 -->
+  <path d="M 877 346 L 899 346" class="arrow" marker-end="url(#arrow)" />
+
+  <!-- STAGE 4: INLINE MITIGATION -->
+  <g transform="translate(899, 84)">
+    <rect width="266" height="524" class="panel" stroke="#3FB950" />
+    <text x="16" y="28" class="stage-title" fill="#3FB950">STAGE 4: INLINE MITIGATION</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(14, 44)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#BC8CFF">1% FPR BUDGET</text>
+      <text x="14" y="47" class="card-title">Dual Thresholds</text>
+      <text x="14" y="73" class="card-bullet">• ALERT: 0.919 to 0.981</text>
+      <text x="14" y="97" class="card-bullet">• BLOCK: &gt;= 0.980</text>
+      <text x="14" y="121" class="card-bullet">• Quantile cut on benign</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(14, 188)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#D29922">CIRCUIT BREAKER</text>
+      <text x="14" y="47" class="card-title">Blast-Radius Policy</text>
+      <text x="14" y="73" class="card-bullet">• Per-window drop cap (50)</text>
+      <text x="14" y="97" class="card-bullet">• Burst fallback to ALERT</text>
+      <text x="14" y="121" class="card-bullet">• Prevents catastrophic drops</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(14, 332)">
+      <rect width="238" height="132" class="card" />
+      <text x="14" y="24" class="card-tag" fill="#3FB950">ENFORCEMENT</text>
+      <text x="14" y="47" class="card-title">Decision Dispatch</text>
+      <text x="14" y="73" class="card-bullet">• ALLOW: Normal packet pass</text>
+      <text x="14" y="97" class="card-bullet">• ALERT: Audit log syslog</text>
+      <text x="14" y="121" class="card-bullet">• BLOCK: Inline packet drop</text>
+    </g>
+
+    <text x="16" y="496" class="contract" fill="#3FB950">Action: ALLOW | ALERT | BLOCK</text>
+  </g>
+
+  <!-- Footnote -->
+  <line x1="35" y1="626" x2="1165" y2="626" stroke="#30363D" stroke-width="1" />
+  <text x="35" y="652" class="subtitle">System Note: Rust runtime (engine-rs) executes bit-for-bit identical decisions across all 104,876 flows with no Python runtime dependency.</text>
+</svg>
