@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 24px; font-weight: 800; fill: #FFFFFF; letter-spacing: 0.5px; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; fill: #8B949E; }
+      .tier-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14.5px; font-weight: 800; letter-spacing: 0.6px; }
+      .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 700; fill: #FFFFFF; }
+      .card-file { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.5px; }
+      .card-bullet { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; fill: #E6EDF3; font-weight: 450; }
+      .panel { fill: #21262D; stroke: #30363D; stroke-width: 1px; rx: 8px; }
+      .card { fill: #161B22; stroke: #384252; stroke-width: 1px; rx: 6px; }
+      .arrow { stroke: #58A6FF; stroke-width: 2.5px; fill: none; }
+      .arrowhead { fill: #58A6FF; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" class="arrowhead" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#181A1F" />
+
+  <!-- Title and Subtitle -->
+  <text x="35" y="38" class="title">NIDS / IPS Component Architecture</text>
+  <text x="35" y="62" class="subtitle">Complete component architecture, module boundaries, and execution pipeline</text>
+
+  <!-- TIER 1 -->
+  <g transform="translate(35, 84)">
+    <rect width="350" height="524" class="panel" stroke="#58A6FF" />
+    <text x="18" y="28" class="tier-title" fill="#58A6FF">1. TELEMETRY &amp; DATASET PARTITIONS</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(16, 44)">
+      <rect width="318" height="135" class="card" />
+      <text x="16" y="24" class="card-file" fill="#58A6FF">src/datasets.py</text>
+      <text x="16" y="48" class="card-title">Network Flow Ingestion</text>
+      <text x="16" y="74" class="card-bullet">• Bidirectional flow key hashing</text>
+      <text x="16" y="98" class="card-bullet">• NSL-KDD (KDDTrain+, KDDTest+)</text>
+      <text x="16" y="122" class="card-bullet">• UNSW-NB15 (175k train, 82k test)</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(16, 192)">
+      <rect width="318" height="135" class="card" />
+      <text x="16" y="24" class="card-file" fill="#39C5BB">src/datasets.py</text>
+      <text x="16" y="48" class="card-title">The Split Dataclass</text>
+      <text x="16" y="74" class="card-bullet">• Strict non-pooled train/test division</text>
+      <text x="16" y="98" class="card-bullet">• Official split preserves 17 novel families</text>
+      <text x="16" y="122" class="card-bullet">• Random split diagnostic baseline</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(16, 340)">
+      <rect width="318" height="170" class="card" fill="#2A2015" stroke="#D29922" />
+      <text x="16" y="24" class="card-file" fill="#D29922">METHODOLOGICAL NOTE</text>
+      <text x="16" y="48" class="card-title" fill="#FFFFFF">The Random Split Illusion</text>
+      <text x="16" y="74" class="card-bullet">Pooling train and test files erases the 17</text>
+      <text x="16" y="96" class="card-bullet">holdout novel attack families in NSL-KDD.</text>
+      <text x="16" y="120" class="card-bullet" font-weight="bold" fill="#D29922">Yields +0.2208 illusory accuracy gain.</text>
+      <text x="16" y="144" class="card-bullet">Both protocols measured side-by-side.</text>
+    </g>
+  </g>
+
+  <!-- Connect Tier 1 to 2 -->
+  <path d="M 385 346 L 425 346" class="arrow" marker-end="url(#arrow)" />
+
+  <!-- TIER 2 -->
+  <g transform="translate(425, 84)">
+    <rect width="350" height="524" class="panel" stroke="#39C5BB" />
+    <text x="18" y="28" class="tier-title" fill="#39C5BB">2. PREPROCESSING &amp; TRANSFORMS</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(16, 44)">
+      <rect width="318" height="135" class="card" />
+      <text x="16" y="24" class="card-file" fill="#39C5BB">src/features.py</text>
+      <text x="16" y="48" class="card-title">Pipeline Encapsulation</text>
+      <text x="16" y="74" class="card-bullet">• scikit-learn Pipeline fitted on TRAIN only</text>
+      <text x="16" y="98" class="card-bullet">• Zero data leakage verified by unit tests</text>
+      <text x="16" y="122" class="card-bullet">• Median numerical imputation</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(16, 192)">
+      <rect width="318" height="135" class="card" />
+      <text x="16" y="24" class="card-file" fill="#BC8CFF">src/features.py</text>
+      <text x="16" y="48" class="card-title">Feature Encoders &amp; Scalers</text>
+      <text x="16" y="74" class="card-bullet">• log1p(x): squashes heavy-tailed byte skews</text>
+      <text x="16" y="98" class="card-bullet">• StandardScaler (u=0, s=1) across features</text>
+      <text x="16" y="122" class="card-bullet">• OneHotEncoder (handle_unknown='ignore')</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(16, 340)">
+      <rect width="318" height="170" class="card" />
+      <text x="16" y="24" class="card-file" fill="#58A6FF">engine-rs / Native</text>
+      <text x="16" y="48" class="card-title">Rust Bit-Parity Runtime</text>
+      <text x="16" y="74" class="card-bullet">• Standalone zero-dependency Rust binary</text>
+      <text x="16" y="98" class="card-bullet">• float32 split parity with scikit-learn</text>
+      <text x="16" y="122" class="card-bullet">• 104,876 / 104,876 exact decision match</text>
+      <text x="16" y="146" class="card-bullet">• ~300k flows/sec multi-core throughput</text>
+    </g>
+  </g>
+
+  <!-- Connect Tier 2 to 3 -->
+  <path d="M 775 346 L 815 346" class="arrow" marker-end="url(#arrow)" />
+
+  <!-- TIER 3 -->
+  <g transform="translate(815, 84)">
+    <rect width="350" height="524" class="panel" stroke="#BC8CFF" />
+    <text x="18" y="28" class="tier-title" fill="#BC8CFF">3. INFERENCE &amp; MITIGATION ENGINE</text>
+
+    <!-- Card 1 -->
+    <g transform="translate(16, 44)">
+      <rect width="318" height="135" class="card" />
+      <text x="16" y="24" class="card-file" fill="#BC8CFF">src/train.py</text>
+      <text x="16" y="48" class="card-title">Dual-Engine Classification</text>
+      <text x="16" y="74" class="card-bullet">• Deterministic rules: SYN &amp; sweep</text>
+      <text x="16" y="98" class="card-bullet">• Random Forest 200 trees (seen accuracy)</text>
+      <text x="16" y="122" class="card-bullet">• Isolation Forest 300 trees (novel catch)</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(16, 192)">
+      <rect width="318" height="135" class="card" />
+      <text x="16" y="24" class="card-file" fill="#3FB950">src/ips.py</text>
+      <text x="16" y="48" class="card-title">Calibrated Prevention Policy</text>
+      <text x="16" y="74" class="card-bullet">• Quantile threshold for 1% FPR budget</text>
+      <text x="16" y="98" class="card-bullet">• ALERT: [0.919, 0.981], BLOCK: &gt;= 0.980</text>
+      <text x="16" y="122" class="card-bullet">• Circuit breaker: max 50 drops / window</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(16, 340)">
+      <rect width="318" height="170" class="card" />
+      <text x="16" y="24" class="card-file" fill="#F85149">src/figures.py</text>
+      <text x="16" y="48" class="card-title">Empirical Results &amp; Audit</text>
+      <text x="16" y="74" class="card-bullet">• Optimism gap: persists across 5 seeds</text>
+      <text x="16" y="98" class="card-bullet">• Novel recall: 27.7% RF vs 46.9% IF</text>
+      <text x="16" y="122" class="card-bullet">• Signature audit: filters failing rules</text>
+      <text x="16" y="146" class="card-bullet">• Native result: compiled code thrashes cache</text>
+    </g>
+  </g>
+
+  <!-- Footnote -->
+  <line x1="35" y1="626" x2="1165" y2="626" stroke="#30363D" stroke-width="1" />
+  <text x="35" y="652" class="subtitle">Architecture Note: In-line IPS engine decouples deterministic signatures (evaluated on raw wire values) from ML inference (evaluated on scaled vectors).</text>
+</svg>
