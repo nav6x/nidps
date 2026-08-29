@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 24px; font-weight: 800; fill: #FFFFFF; letter-spacing: 0.5px; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; fill: #8B949E; }
+      .section-heading { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 13.5px; font-weight: 800; letter-spacing: 0.8px; }
+      .card-header { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 15.5px; font-weight: 700; fill: #FFFFFF; }
+      .badge-tag { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 11.5px; font-weight: 700; letter-spacing: 0.5px; }
+      .card-bullet { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; fill: #E6EDF3; font-weight: 450; }
+      .subcard-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 15.5px; font-weight: 700; fill: #FFFFFF; }
+      .subcard-bullet { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; font-size: 14px; fill: #D0D7DE; }
+      .panel { fill: #21262D; stroke: #30363D; stroke-width: 1px; rx: 8px; }
+      .card { fill: #161B22; stroke-width: 1.5px; rx: 6px; }
+      .subcard { fill: #161B22; stroke: #384252; stroke-width: 1px; rx: 6px; }
+      .arrow { stroke: #58A6FF; stroke-width: 2.5px; fill: none; }
+      .arrowhead { fill: #58A6FF; }
+      .divider { stroke: #30363D; stroke-width: 1px; }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" class="arrowhead" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#181A1F" />
+
+  <!-- Title and Subtitle -->
+  <text x="35" y="38" class="title">In-Line Prevention Engine &amp; Rust Bit-Parity Runtime</text>
+  <text x="35" y="62" class="subtitle">Deterministic signature evaluation, float32 tree interpreter, policy budgeting, and memory cache locality</text>
+
+  <!-- Top Container: Pipeline Stages -->
+  <g transform="translate(35, 84)">
+    <rect width="1130" height="254" class="panel" stroke="#58A6FF" />
+    <text x="18" y="28" class="section-heading" fill="#58A6FF">IN-LINE DECISION PIPELINE &amp; FAST-PATH CASCADE</text>
+
+    <!-- Card 1: Ingestion & Allowlist -->
+    <g transform="translate(18, 42)">
+      <rect width="258" height="196" class="card" stroke="#3FB950" />
+      <text x="16" y="26" class="card-header">1. Ingestion &amp; Allowlist</text>
+      <text x="16" y="47" class="badge-tag" fill="#3FB950">ZERO-OVERHEAD CHECK</text>
+      <line x1="16" y1="58" x2="242" y2="58" class="divider" />
+      <text x="16" y="82" class="card-bullet">• Raw flow stream</text>
+      <text x="16" y="106" class="card-bullet">• IP / Port hash lookup</text>
+      <text x="16" y="130" class="card-bullet">• Allowlisted -&gt; ALLOW</text>
+      <text x="16" y="154" class="card-bullet">• Bypass ML inference</text>
+      <text x="16" y="178" class="card-bullet">• Zero false drops</text>
+    </g>
+
+    <!-- Arrow 1 -> 2 -->
+    <path d="M 276 140 L 298 140" class="arrow" marker-end="url(#arrow)" />
+
+    <!-- Card 2: Fast Signatures -->
+    <g transform="translate(298, 42)">
+      <rect width="258" height="196" class="card" stroke="#D29922" />
+      <text x="16" y="26" class="card-header">2. Fast Signatures</text>
+      <text x="16" y="47" class="badge-tag" fill="#D29922">RAW WIRE METRICS</text>
+      <line x1="16" y1="58" x2="242" y2="58" class="divider" />
+      <text x="16" y="82" class="card-bullet">• SYN flood: sid:1000</text>
+      <text x="16" y="106" class="card-bullet">• Port sweep: sid:1001</text>
+      <text x="16" y="130" class="card-bullet">• Precision: 0.98 to 1.00</text>
+      <text x="16" y="154" class="card-bullet">• Evaluated on RAW values</text>
+      <text x="16" y="178" class="card-bullet">• Match -&gt; Instant ALERT</text>
+    </g>
+
+    <!-- Arrow 2 -> 3 -->
+    <path d="M 556 140 L 578 140" class="arrow" marker-end="url(#arrow)" />
+
+    <!-- Card 3: Rust Tree Interpreter -->
+    <g transform="translate(578, 42)">
+      <rect width="258" height="196" class="card" stroke="#58A6FF" />
+      <text x="16" y="26" class="card-header">3. Rust Tree Interpreter</text>
+      <text x="16" y="47" class="badge-tag" fill="#58A6FF">BIT-PARITY WITH SKLEARN</text>
+      <line x1="16" y1="58" x2="242" y2="58" class="divider" />
+      <text x="16" y="82" class="card-bullet">• 200 trees, depth-blocked</text>
+      <text x="16" y="106" class="card-bullet">• float32 split rounding parity</text>
+      <text x="16" y="130" class="card-bullet">• Cache-friendly flat arrays</text>
+      <text x="16" y="154" class="card-bullet">• 22,544 / 22,544 exact match</text>
+      <text x="16" y="178" class="card-bullet">• Throughput: ~300k flows/s</text>
+    </g>
+
+    <!-- Arrow 3 -> 4 -->
+    <path d="M 836 140 L 858 140" class="arrow" marker-end="url(#arrow)" />
+
+    <!-- Card 4: Threshold & Policy -->
+    <g transform="translate(858, 42)">
+      <rect width="254" height="196" class="card" stroke="#BC8CFF" />
+      <text x="16" y="26" class="card-header">4. Threshold &amp; Policy</text>
+      <text x="16" y="47" class="badge-tag" fill="#BC8CFF">CIRCUIT BREAKER</text>
+      <line x1="16" y1="58" x2="238" y2="58" class="divider" />
+      <text x="16" y="82" class="card-bullet">• Target FPR budget: 1%</text>
+      <text x="16" y="106" class="card-bullet">• Benign quantile cut</text>
+      <text x="16" y="130" class="card-bullet">• Block threshold &gt;= 0.980</text>
+      <text x="16" y="154" class="card-bullet">• Max 50 blocks / window</text>
+      <text x="16" y="178" class="card-bullet">• Burst fallback to ALERT</text>
+    </g>
+  </g>
+
+  <!-- Bottom Container: System Subsystems -->
+  <g transform="translate(35, 354)">
+    <rect width="1130" height="254" class="panel" stroke="#384252" />
+    <text x="18" y="28" class="section-heading" fill="#58A6FF">SYSTEM IMPLEMENTATION &amp; VALIDATION SUBSYSTEMS</text>
+
+    <!-- Subcard 1: Python Reference -->
+    <g transform="translate(18, 42)">
+      <rect width="350" height="196" class="subcard" />
+      <text x="18" y="28" class="subcard-title">Python Reference (src/ips.py)</text>
+      <line x1="18" y1="42" x2="332" y2="42" class="divider" />
+      <text x="18" y="74" class="subcard-bullet">• scikit-learn Pipeline wrapper</text>
+      <text x="18" y="106" class="subcard-bullet">• Interactive --demo visualization</text>
+      <text x="18" y="138" class="subcard-bullet">• Full test suite validation (15 tests)</text>
+      <text x="18" y="170" class="subcard-bullet">• Audit scoring against base rates</text>
+    </g>
+
+    <!-- Subcard 2: Rust Prevention Engine -->
+    <g transform="translate(390, 42)">
+      <rect width="350" height="196" class="subcard" />
+      <text x="18" y="28" class="subcard-title">Rust Prevention Engine (engine-rs)</text>
+      <line x1="18" y1="42" x2="332" y2="42" class="divider" />
+      <text x="18" y="74" class="subcard-bullet">• Zero-dependency static binary (~2MB)</text>
+      <text x="18" y="106" class="subcard-bullet">• 100.00% decision parity (104,876 flows)</text>
+      <text x="18" y="138" class="subcard-bullet">• Multi-threaded scaling across cores</text>
+      <text x="18" y="170" class="subcard-bullet">• Direct export JSON ingestion</text>
+    </g>
+
+    <!-- Subcard 3: Compiled Native Forest -->
+    <g transform="translate(762, 42)">
+      <rect width="350" height="196" class="subcard" />
+      <text x="18" y="28" class="subcard-title">Compiled Native Forest (engine-native)</text>
+      <line x1="18" y1="42" x2="332" y2="42" class="divider" />
+      <text x="18" y="74" class="subcard-bullet">• Treelite-style C / Rust codegen</text>
+      <text x="18" y="106" class="subcard-bullet">• Evaluated as a NEGATIVE result</text>
+      <text x="18" y="138" class="subcard-bullet">• Instruction cache thrashing detected</text>
+      <text x="18" y="170" class="subcard-bullet">• Confirms interpreter superiority</text>
+    </g>
+  </g>
+
+  <!-- Footnote -->
+  <line x1="35" y1="626" x2="1165" y2="626" stroke="#30363D" stroke-width="1" />
+  <text x="35" y="652" class="subtitle">System Note: Rust runtime (engine-rs) executes bit-for-bit identical decisions across all 104,876 flows with zero Python dependencies.</text>
+</svg>
