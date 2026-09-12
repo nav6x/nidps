@@ -22,7 +22,7 @@
   </defs>
 
   <!-- Background -->
-  <rect width="100%" height="100%" fill="#181A1F" />
+  <rect width="100%" height="100%" fill="#0D1117" />
 
   <!-- Title and Subtitle -->
   <text x="35" y="38" class="title">In-Line Prevention Engine &amp; Rust Bit-Parity Runtime</text>

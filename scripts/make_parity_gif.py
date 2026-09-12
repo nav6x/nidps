@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT / "engine-rs"))
 
 import parity
 
-BG = (24, 26, 31)
+BG = (13, 17, 23)
 PANEL = (33, 38, 45)
 TEXT = (230, 237, 243)
 DIM = (139, 148, 158)

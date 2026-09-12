@@ -22,5 +22,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Fetch benchmark datasets
+        run: bash scripts/fetch_data.sh
+
+      - name: Train models (required by the data-dependent test suite)
+        run: python src/train.py --dataset nsl-kdd unsw-nb15
+
       - name: Run the leak-free test suite
         run: python -m pytest tests/ -v

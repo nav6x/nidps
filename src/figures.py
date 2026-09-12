@@ -13,9 +13,9 @@ from matplotlib.ticker import PercentFormatter
 RESULTS = Path(__file__).resolve().parent.parent / "results"
 FIGDIR = RESULTS / "figures"
 
-BG_COLOR = "#181A1F"
-CARD_COLOR = "#21262D"
-GRID_COLOR = "#2D333B"
+BG_COLOR = "#0D1117"
+CARD_COLOR = "#161B22"
+GRID_COLOR = "#21262D"
 TEXT_COLOR = "#E6EDF3"
 TEXT_MUTED = "#8B949E"
 BORDER_COLOR = "#30363D"

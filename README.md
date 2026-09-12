@@ -1,6 +1,6 @@
 # NIDPS
 
-### Network Intrusion Detection and Prevention System: Empirical Generalisation Gaps, Zero-Day Vulnerability, and Bit-Identical In-Line Engine Architecture
+### Network Intrusion Detection and Prevention System
 
 ---
 
